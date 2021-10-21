@@ -48,7 +48,7 @@ class PostTableViewCell: UITableViewCell {
         } else {
             let comment = postData.comments.joined(separator: "\n")
             
-            self.commentLabel.text = "\(postData.name!) : \(comment)"
+            self.commentLabel.text = "\(comment)"
         }
         
         // 日時の表示

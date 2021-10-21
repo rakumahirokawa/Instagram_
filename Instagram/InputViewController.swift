@@ -23,7 +23,8 @@ class InputViewController: UIViewController {
     
     @IBAction func CommentInputButton(_ sender: Any) {
         
-        let name = Auth.auth().currentUser?.displayName
+        let commentname = Auth.auth().currentUser?.displayName
+        
         
         let newcomment = self.commentTextField.text!
         
@@ -31,7 +32,7 @@ class InputViewController: UIViewController {
         let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
         
         let updateValue: FieldValue
-        updateValue = FieldValue.arrayUnion([name! + " : " + newcomment])
+        updateValue = FieldValue.arrayUnion([commentname! + " : " + newcomment])
 
         postRef.updateData(["comments": updateValue])
         
